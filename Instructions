@@ -1,0 +1,11 @@
+Steps to set up Raspberry pi environment:
+Download Raspbian Stretch with Desktop zip file: https://www.raspberrypi.org/downloads/raspbian/
+Unzip files and use an image burner software to burn the .img file onto a microSD card
+When finished burning put microSD into Raspberry Pi, and plug in peripherals to the Pi, usually you'll need a mouse, monitor (HDMI), keyboard and if older Pi is used a USB wifi dongle as well as the camera module for the pi
+With all peripherals plugged in, power the pi using a microUSB cable preferably through a wall charger. You should see the Pi boot up on the monitor
+Follow instructions here:  https://projects.raspberrypi.org/en/projects/getting-started-with-picamera  (go to the Connect the Camera Module tab)
+to ensure you plug the camera in correctly and also enable the camera module when the Pi has booted. DO NOT plug or unplug the camera while the Pi is on.
+Next you will want to open up a terminal window on the Pi, you will use this to install necessary packages, type into the terminal the following commands:
+
+sudo apt-get update
+sudo apt-get upgrade
