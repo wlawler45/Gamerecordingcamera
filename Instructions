@@ -16,3 +16,19 @@ sudo apt-get install git
 sudo apt-get install python-pip
 sudo pip install pynput
 git clone https://github.com/wlawler45/Gamerecordingcamera
+
+Finally to make code run on powering up of raspberry pi, open up terminal window and type in:
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+This will open a file, to which you should add this line at the bottom
+@/usr/bin/python /home/pi/Gamerecordingcamera/multistreamcam.py
+Then press Ctrl+x and y to save the file.
+
+Your setup should now be complete. The code should run on start the next time that the raspberry pi is powered on.
+
+However with the current code there is still expected keyboard inputs to turn the camera recording streams on and off. To use this with a server based app you would need to import necessary libraries for taking input from those sources and simply edit the lines that check Pynput, make sure that the input methods operate as interrupts to make sure they are processed promptly.
+The current keyboard inputs to control the code are:
+"r" to start/stop lower quality full game recording (640x480)
+"n" Saves 30 second highlight reel from high quality circular buffer recording (1024,768)
+"Esc" Ends the program, stops all recordings, and commences conversion of all recorded .h264 files to exportable .mp4 files
+
+All files are saved in a new folder named with the date and time that the program was started.
