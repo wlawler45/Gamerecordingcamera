@@ -5,7 +5,14 @@ When finished burning put microSD into Raspberry Pi, and plug in peripherals to 
 With all peripherals plugged in, power the pi using a microUSB cable preferably through a wall charger. You should see the Pi boot up on the monitor
 Follow instructions here:  https://projects.raspberrypi.org/en/projects/getting-started-with-picamera  (go to the Connect the Camera Module tab)
 to ensure you plug the camera in correctly and also enable the camera module when the Pi has booted. DO NOT plug or unplug the camera while the Pi is on.
-Next you will want to open up a terminal window on the Pi, you will use this to install necessary packages, type into the terminal the following commands:
+
+Next you will want to connect your Raspberry pi to the internet, in the upper right corner there should be a taskbar with icons similar to windows, click on the one that looks like a wireless symbol and log onto wifi, or connect an ethernet cable to the Pi, without internet you cannot download the necessary files. 
+
+Now with internet you will want to open up a terminal window (shortcut ctrl+alt+t) on the Pi, you will use this to install necessary packages, type into the terminal the following commands:
 
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get install git
+sudo apt-get install python-pip
+sudo pip install pynput
+git clone https://github.com/wlawler45/Gamerecordingcamera
