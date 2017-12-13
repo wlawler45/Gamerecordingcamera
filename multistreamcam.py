@@ -1,6 +1,6 @@
 import picamera
 from pynput.keyboard import Key, Listener
-from multiprocessing import Process
+#from multiprocessing import Process
 import subprocess
 import sys, os
 import io
@@ -8,7 +8,7 @@ import time
 import datetime
 #from moviepy.editor import VideoFileClip
 def write_from_buf(splits):
-    print("writing from buf")
+    #print("writing from buf")
     stream.copy_to('%s/highlight%d.h264'%(directory,splits))
     
     """with io.open('highlight%d.h264'%(splits),'wb') as output:
@@ -51,7 +51,7 @@ def on_press(key):
                 return False
 		
 	if  hit=='n':
-		print("YAY!")
+	#	print("YAY!")
 		splits+=1
 		highlight(splits)
                 #camera.split_recording('part%d.h264' %splits)
@@ -70,12 +70,12 @@ def on_press(key):
                 
 def highlight(splits):
         global stream
-	print("highlight seen")
-	camera.split_recording('%s/useless.h264'%directory)
+	print("highlight recording")
+	camera.split_recording('%s/useless.h264'%directory) #dumps the very few frames lost while the circular buffer is dumped into a file, shouldn't be longer than a few seconds of lost footage if anything.
 	write_from_buf(splits)
-	print("it friggin finished!")
+	
 	camera.split_recording(stream)
-	print("resuming")
+	print("resuming highlight recording")
 	#home=os.path.expanduser("~")
         #ffmpeg='/usr/bin/ffmpeg'
         #argument=[ffmpeg,'-y','-sseof','-3','-t','3','-i', 'part%d.h264'%(splits-1),'highlight%d.h264'%(splits)]
